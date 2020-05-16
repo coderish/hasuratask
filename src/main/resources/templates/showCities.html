@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Cities</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<h1 style="color: #777777; text-align: center;">List of cities</h1>
+
+	<div class="container">
+		<h1 style="color: #777777; text-align: center;" th:text="${title}"></h1>
+
+		<div class="row col-md-8 table-responsive">
+			<table id="cityTable" class="table">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Name</th>
+						<th>Population</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="city, rowStat: ${cities}"
+						th:style="${rowStat.odd} ? 'color: gray' : 'color: blue;'">
+						<td th:text="${city.id}">Id</td>
+						<td th:text="${city.name}">Name</td>
+						<td th:text="${city.population}">Population</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
